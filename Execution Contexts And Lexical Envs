@@ -1,0 +1,35 @@
+Lexical environment - where something physically sits in the code that you write. Lexical environments exists in programming
+languages in which where you write something is important.
+
+Execution context - a wrapper to help manage the code that is running. --> There are lots of lexical environments. Which
+one is running is managed via execution context. It can contain things beyond what you have written in your code.
+
+JS Engine creates global execution context which includes global object and 'this'.
+
+Global = not inside a function
+
+When you create variables/ functions (globally), they get attached to the global object.
+
+Execution context is created in 2 phases:
+
+1. Creation phase
+    - global object
+    - 'this'
+    - link to outer environment
+    -set up memory space for variables and functions (hoisting)
+
+In hoisting phase, functions are placed in memory in full and variables are stored as undefined.
+
+2. Code execution
+
+When you invoke a function, new execution context is created and placed on the stack.
+
+If a variable is not delcared in current scope, JS engine will look for it in its parent scope - which is
+determined by its LEXICAL ENVIRONMENT, not where we try to access the variable
+
+Chain of references to outer environment = SCOPE CHAIN
+
+Scope - where a variable is available in code
+
+The event queue is looked at by JS engine only when execution stack is empty --> Long running functions can interrupt
+events being handled.

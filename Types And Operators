@@ -1,0 +1,29 @@
+Operator - a special function that is syntactically written differently.
+
+Infix notation - function name (operator) sits between args
+
++(3,4) --> 3+4
+
+Operator precedence and associativity: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+Associativity dictates in what order operator functions get called in - left to right or right to left - when
+functions have the same precedence.
+
+Example 1
+
+var a = 2, var b = 3, var c = 4
+
+console.log(a)
+console.log(b)
+console.log(c)
+
+All are equal 4 - > because of associativity (right to left)
+
+Example 2
+
+console.log(1<2<3) true
+console.log(3<2<1) true
+
+3<2<1 --> false<1 --> 0<1 --> true
+
+Equality comparison and sameness https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness

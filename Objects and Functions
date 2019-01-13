@@ -1,0 +1,33 @@
+Objects have references to places in memory where their properties and methods live.
+
+Namespace - a container for variables and functions. Typically used to keep variables and functions with the same
+name separate. JS doesn't need that feature - same is achieved by attaching props to objects.
+
+First-class functions = everything that you can do with other types, you can do with functions
+
+Function - a special types of object. You can attach values to it like to a regular object.
+
+Special properties:
+
+1. Name (optional)
+2. Code -> invokable
+
+Code isn't the function. It is just one of the properties on function object.
+
+Function statement - if result is not a value (!= function expression)
+
+Function expressions aren't hoisted like typical functions - they get assigned to a variable undefined, so it's impossible
+to invoke a function before it has been declared.
+
+Inside regular function statements / expressions 'this' keyword still points to the global object.
+
+However, if a function is a method on the object, 'this' points to the object. BUT in functins declared inside object methods,
+'this' point to the global object again!
+
+Arguments keyord - returns an array-like object. NOw preferred approach is the use of a spread operator.
+
+Automatic semicolon insertion - can cause some unexpected behaviour, especally with return statements.
+
+IFFE - function wrapped in parentheses and immediatelly invoked.
+
+Variables declared inside IFFE do not collide with global namespace (separate execution contexts)
