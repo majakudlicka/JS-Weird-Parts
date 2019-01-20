@@ -13,6 +13,8 @@ Example 1
 
 var a = 2, var b = 3, var c = 4
 
+a=b=c
+
 console.log(a)
 console.log(b)
 console.log(c)
