@@ -31,3 +31,123 @@ Automatic semicolon insertion - can cause some unexpected behaviour, especally w
 IFFE - function wrapped in parentheses and immediatelly invoked.
 
 Variables declared inside IFFE do not collide with global namespace (separate execution contexts)
+
+Closures work because 'inner' functions maintain a reference to their outer environment. Execution context is gone, but
+relevant variables stay in memory and inner function has reference to the place in memory where they are stored. We say
+that execution context has 'closed in' its outer variables. This phenomenon is called a closure.
+
+Example
+
+function buildFunctions() {
+    var arr = [];
+
+    for (var i = 0; i < 3; i++) {
+        arr.push(
+            function () {
+                console.log(i);
+            })
+    }
+
+    return arr;
+
+}
+
+var fs = buildFunctions();
+
+fs[0]();
+fs[1]();
+fs[2]();
+
+Output: 3,3,3 -> because i =3 in memory of that execution context. If we wanted to see 1,2,3, we could introduce
+variable j declared with let (block scope variable) inside the loop before arr.push
+
+Function factory example
+
+function makeGreeting(lang) {
+    return function(firstname, lastname) {
+        if (lang === 'en') {
+            console.log('Hello ' + firstname + lastname);
+        }
+
+        if (lang === 'es') {
+            console.log('Hola ' + firstname + lastname);
+        }
+    }
+}
+
+var greetEnglish = makeGreeting('en');
+var greetSpasnish = makeGreeting('es');
+
+Callback function = function that you give to another function, to be run when the other function is finished.
+
+Functions, being special type of object, have access to call, bind and apply methods.
+Call, apply, bind - help control what 'this' points to.
+
+Bind - creates a copy of a function. Call - invokes the function. Apply - works same as call but accepts an array as
+a parameter
+
+Example
+
+var person = {
+    firstname: 'John',
+    lastname: 'Doe',
+    getFullName: function() {
+
+        var fullname = this.firstname + ' ' + this.lastname;
+        return fullname;
+
+    }
+}
+
+var logName = function(lang1, lang2) {
+
+    console.log('Logged: ' + this.getFullName());
+    console.log('Arguments: ' + lang1 + ' ' + lang2);
+    console.log('-----------');
+
+}
+
+var logPersonName = logName.bind(person);
+logPersonName('en');
+
+logName.call(person, 'en', 'es');
+
+
+logName.apply(person, ['en', 'es']);
+
+(function(lang1, lang2) {
+
+    console.log('Logged: ' + this.getFullName());
+    console.log('Arguments: ' + lang1 + ' ' + lang2);
+    console.log('-----------');
+
+}).apply(person, ['es', 'en']);
+
+Function borrowing - using method declared on one object with another
+
+Example
+
+var person2 = {
+    firstname: 'Jane',
+    lastname: 'Doe'
+}
+
+console.log(person.getFullName.apply(person2));
+
+Function currying - creating a copy of a function but with some preset parameters. It can be useful in some
+mathematical situations. Bind allows you to set extra params, not just 'this'.
+
+Example
+
+function multiply(a, b) {
+    return a*b;
+}
+
+var multipleByTwo = multiply.bind(this, 2);
+console.log(multipleByTwo(4));
+
+var multipleByThree = multiply.bind(this, 3);
+console.log(multipleByThree(4));
+
+Underscore, annotated source code - good resource to learn some functional programming patterns
+
