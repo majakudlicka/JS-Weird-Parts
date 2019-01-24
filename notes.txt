@@ -1,0 +1,33 @@
+- Code that gets executed is more than what we write ourselves - JS can add things to it and change it
+- Example 1: empty code, this
+- Example 2: automatic semicolon insertion
+- Example 3: Type coercion - dangerous thing but also powerful feature
+
+- So what happens when we run a program - execution context creation
+
+1. Creation phase
+    - global object
+    - 'this'
+    - link to outer environment -> physical place in memory
+    -set up memory space for variables and functions (hoisting)
+
+In hoisting phase, functions are placed in memory in full and variables are stored as undefined.
+
+2. Code execution
+
+- Hoisting example
+
+- Since we are talking about this, I'd like to point out some quirks in its behavious
+
+-'This' example
+
+- Another topic I'd like to touch on - operators - because many examples in this image make sense once you understand operators
+- What are operators - functions with infix notation
+- Precedence, associativity, sameness -> quite big topics, not much time to disucss in detail
+- Example with =
+- Example with <
+
+- Closure example - remember how we said when execution context gets created we talked about the link to outer env?
+
+
+
