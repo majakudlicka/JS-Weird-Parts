@@ -1,3 +1,4 @@
+- Intro, image. Made me think about video I am watching for the third time - 12 h long. That's impressive, only watched Game of Thrones twice
 - Code that gets executed is more than what we write ourselves - JS can add things to it and change it
 - Example 1: empty code, this
 - Example 2: automatic semicolon insertion
